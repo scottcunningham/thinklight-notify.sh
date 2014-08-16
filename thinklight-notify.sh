@@ -22,9 +22,11 @@ function flash {
 
     /usr/bin/touch $LOCKFILE
 
+    mplayer "$1" &
+
     for x in `/usr/bin/seq 0 2`; do lighton; sleep 0.75; lightoff; sleep 0.75; done
     
     /bin/rm $LOCKFILE
 }
 
-flash
+flash $@
